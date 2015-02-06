@@ -1,6 +1,7 @@
 === Preparation
 
-. clone mes dockerfiles sour github
+. faire un source /var/lib/boot2docker/profile
+. cloner mes dockerfiles depuis github
 . tirer les images ubuntu
 . construire les images java8 et maven
 
@@ -71,4 +72,4 @@ alias drr='sudo docker run --rm'
 alias drmall='sudo docker rm -v $(sudo docker ps -a -q)'
 alias drmiall='sudo docker rmi -f $(sudo docker images -q)'
 
-alias dgit='drr -v /home/nicolas/Dropbox/Temp/demo/3_git/my-spring-boot-sample:/src -t nocquidant/git'
+alias dgit='drr -v `pwd`:/src nocquidant/git'
