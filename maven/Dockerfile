@@ -24,10 +24,10 @@ RUN \
 # Maven config
 #
 
-ENV MAVEN_OPTS="$MAVEN_OPTS -Dhttp.proxyHost=proxy-nantes.groupesigma.fr -Dhttp.proxyPort=8080"
-ENV MAVEN_OPTS="$MAVEN_OPTS -Dhttp.nonProxyHosts=127.0.0.1|localhost|*.groupesigma.fr|*.devsopra.com"
-ENV MAVEN_OPTS="$MAVEN_OPTS -Dhttps.proxyHost=proxy-nantes.groupesigma.fr -Dhttps.proxyPort=8080"
-ENV MAVEN_OPTS="$MAVEN_OPTS -Dhttps.nonProxyHosts=127.0.0.1|localhost|*.groupesigma.fr|*.devsopra.com"
+ENV MAVEN_OPTS "$MAVEN_OPTS -Dhttp.proxyHost=proxy-nantes.groupesigma.fr -Dhttp.proxyPort=8080"
+ENV MAVEN_OPTS "$MAVEN_OPTS -Dhttp.nonProxyHosts=127.0.0.1|localhost|*.groupesigma.fr|*.devsopra.com"
+ENV MAVEN_OPTS "$MAVEN_OPTS -Dhttps.proxyHost=proxy-nantes.groupesigma.fr -Dhttps.proxyPort=8080"
+ENV MAVEN_OPTS "$MAVEN_OPTS -Dhttps.nonProxyHosts=127.0.0.1|localhost|*.groupesigma.fr|*.devsopra.com"
 
 #
 # Set env variable
