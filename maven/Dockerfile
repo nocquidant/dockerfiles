@@ -1,3 +1,6 @@
+# Build:
+#   docker build -t nocquidant/maven .
+
 FROM nocquidant/java8
 
 #
