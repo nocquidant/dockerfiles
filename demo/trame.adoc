@@ -26,7 +26,7 @@
 .. a noter l'utilisation d'un cache (on en reparlera plus loin)
 .. on lance l'image avec `drr nocquidant/hello`
 
-=== cowsay et fortune
+=== Cowsay et Fortune
 
 . entre le FROM et la CMD, je peux faire des choses... et notamment installer une application
 .. cowsay et fortune !!
@@ -39,14 +39,14 @@
 .. forte productivité !!
 .. difficile de revenir en arrière quand vous construisez une VM (les gens ont inventé Vagrant)
 
-=== fichier de ma machine
+=== Fichier de ma machine
 
 . comment créer un conteneur avec des fichiers qui proviennent de ma machine ?
 .. cowsay avec mon fichier
 .. possibilité de générer un tar.gz de mon image et de la donner à quelqu'un 
 .. -> le même binaire s'executera avec le même contexte !
 
-=== executer mon projet Java depuis GitHub
+=== Executer mon projet Java depuis GitHub
 
 ==== git
 
