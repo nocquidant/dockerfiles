@@ -1,6 +1,6 @@
 === Preparation
 
-. faire un source /var/lib/boot2docker/profile
+. faire un source de `/var/lib/boot2docker/profile`
 . cloner mes dockerfiles depuis github
 . tirer les images ubuntu
 . construire les images java8 et maven
