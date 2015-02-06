@@ -66,6 +66,7 @@
 
 == mes alias
 
+----
 alias db='sudo docker build'
 alias dr='sudo docker run'
 alias drr='sudo docker run --rm'
@@ -73,3 +74,4 @@ alias drmall='sudo docker rm -v $(sudo docker ps -a -q)'
 alias drmiall='sudo docker rmi -f $(sudo docker images -q)'
 
 alias dgit='drr -v `pwd`:/src nocquidant/git'
+----
