@@ -24,7 +24,7 @@ RUN \
 # Maven config
 #
 
-RUN mv /usr/share/maven/conf/settings.xml/usr/share/maven/conf/settings.xml.OLD
+RUN mv /usr/share/maven/conf/settings.xml /usr/share/maven/conf/settings.xml.OLD
 COPY ./conf/settings.xml /usr/share/maven/conf/settings.xml
 
 #
