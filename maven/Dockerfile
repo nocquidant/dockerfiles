@@ -1,9 +1,5 @@
 FROM nocquidant/java8
 
-# ENV http_proxy http://proxy-nantes.groupesigma.fr:8080 
-# ENV https_proxy http://proxy-nantes.groupesigma.fr:8080 
-# ENV no_proxy 127.0.0.1,localhost,.groupesigma.fr
-
 #
 # Install curl
 #
