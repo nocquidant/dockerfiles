@@ -7,19 +7,19 @@
 
 === BASH dans un conteneur
 
-. lancer un bash dans un conteneur : `sudo docker run --rm -it ubuntu:14.10 bash`
+. lancer un bash dans un conteneur : `sudo docker run --rm -it ubuntu bash`
 .. je suis bien dans une ubuntu : `cat /etc/os-release`
 .. est-ce vraiment une ubuntu ? `uname -a`
 
 . un conteneur est isolé du monde : 
 .. `rm -rf /bin`
-.. pas grave, je peux en redémarrer un *tout propre* : `sudo docker run --rm -it ubuntu:14.10 bash`
+.. pas grave, je peux en redémarrer un *tout propre* : `sudo docker run --rm -it ubuntu bash`
 .. essayez de faire ça avec un VM, vous avez interêt à avoir un snaphost récent...
 
 === Hello world
 
 . hello world ?
-.. `sudo docker run --rm -it ubuntu:14.10 echo "Hello world!"`
+.. `sudo docker run --rm ubuntu echo "Hello world!"`
 
 . comment on construit des images docker ? -> via un Dockerfile (autres possibilités)
 .. hello world dans mon image à moi, via un docker file ? cf dossier hello
