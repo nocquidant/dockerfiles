@@ -11,9 +11,8 @@ ENV http_proxy http://proxy-nantes.groupesigma.fr:8080
 ENV https_proxy http://proxy-nantes.groupesigma.fr:8080 
 ENV no_proxy 127.0.0.1,localhost,.groupesigma.fr
 
-RUN \
-  apt-get update && \
-  apt-get install -y cowsay fortune
+RUN apt-get update
+RUN apt-get install -y cowsay fortune
 
 ENV PATH $PATH:/usr/games
 
