@@ -1,0 +1,10 @@
+export HTTP_PROXY=http://proxy-nantes.groupesigma.fr:8080
+export HTTPS_PROXY=http://proxy-nantes.groupesigma.fr:8080
+export NO_PROXY=127.0.0.1,localhost,.groupesigma.fr
+
+alias db='sudo docker build'
+alias dr='sudo docker run'
+alias drr='sudo docker run --rm'
+alias di='sudo docker images'
+alias drmall='sudo docker rm -v $(sudo docker ps -a -q)'
+alias drmiall='sudo docker rmi -f $(sudo docker images -q)'
