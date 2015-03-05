@@ -1,0 +1,132 @@
+# Cheatsheet Docker
+
+## Configurer le proxy dans la VM Host
+
+### CentOS
+
+A ajouter dans `.bashrc`
+
+----
+export http_proxy="http://proxy-nantes.groupesigma.fr:8080"
+export https_proxy="http://proxy-nantes.groupesigma.fr:8080"
+export no_proxy="127.0.0.1,localhost,.groupesigma.fr"
+
+export HTTP_PROXY=$http_proxy
+export HTTPS_PROXY=$https_proxy
+export NO_PROXY=$no_proxy
+----
+
+A ajouter dans `/etc/sysconfig/docker`
+
+----
+HTTP_PROXY="http://proxy-nantes.groupesigma.fr:8080"
+HTTPS_PROXY="http://proxy-nantes.groupesigma.fr:8080"
+NO_PROXY="127.0.0.1,localhost,.groupesigma.fr"
+http_proxy=$HTTP_PROXY
+https_proxy=$HTTPS_PROXY
+no_proxy=$NO_PROXY
+----
+
+### Ubuntu 
+
+A ajouter dans `/etc/environment`
+
+----
+http_proxy="http://proxy-nantes.groupesigma.fr:8080"
+https_proxy="http://proxy-nantes.groupesigma.fr:8080"
+no_proxy="127.0.0.1,localhost,.groupesigma.fr"
+
+HTTP_PROXY="http://proxy-nantes.groupesigma.fr:8080"
+HTTPS_PROXY="http://proxy-nantes.groupesigma.fr:8080"
+NO_PROXY="127.0.0.1,localhost,.groupesigma.fr"
+----
+
+A ajouter dans `/etc/default/docker`
+
+----
+export http_proxy="http://proxy-nantes.groupesigma.fr:8080/"
+----
+
+## Démarrer docker
+
+* Ubuntu : `sudo start docker`
+* CentOS : `sudo systemctl start docker`
+* Manuel : `docker -d --insecure-registry localhost:5000`
+* Manuel custom : `docker -d --insecure-registry 172.31.58.79:50000 &`
+
+### Etat docker
+
+* Ubuntu : `sudo status docker`
+* CentOS : `sudo systemctl status docker`
+* Manuel : `docker info`
+
+## Les commandes docker
+
+* Supprimer tous les conteneurs : `docker rm `docker ps -a -q``
+* Lancer docker en mode interactif : `docker rm -i`
+* Lancer docker en mode interactif, en connectant un tty : `docker rm -i -t`
+* Logger le conteneur (sortie standard) : `docker logs -f nocquidant/boa-principal`
+* Se connecter à un conteneur : `docker exec -i -t boa-redis-primary /bin/bash`
+* Supprimer tous les conteneurs :
+
+----
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+
+docker ps -a | grep 'weeks ago' | awk '{print $1}' | xargs --no-run-if-empty docker rm
+docker rmi $(docker images | grep '<none>' | tr -s ' ' | cut -d ' ' -f 3)
+----
+
+* Réutiliser des variables dans les dockerfiles :
+
+----
+ENV TARGET_DIR /opt/app
+WORKDIR $TARGET_DIR
+----
+
+* Inspecter les volumes : `docker inspect -f "{{ .Volumes }}" boa-redis` 
+* Connaitre l'IP du conteneur : `docker inspect --format '{{ .NetworkSettings.IPAddress }}' boa-redis`
+* Autre commandes d'inspection : 
+** `docker inspect --format='{{ .State.Running }}' boa-redis`
+
+## Les liens intéressants
+
+* Private registry:
+
+http://www.dropbit.ch/private-docker-registry-with-nginx-on-centos-7/
+http://wanderingquandaries.blogspot.fr/2014/11/setting-up-insecure-docker-registry.html
+
+* Sonar: 
+
+https://github.com/tpires/docker-sonar
+
+* Volumes info:
+
+http://container-solutions.com/2014/12/understanding-volumes-docker/
+http://blog.goranrakic.com/archives/2014/06/understanding_docker_volumes.html
+http://www.tech-d.net/2014/11/03/docker-indepth-volumes/
+http://stackoverflow.com/questions/25982460/writing-to-docker-volume-from-dockerfile-does-not-work
+
+* Gestion des volumes
+
+https://github.com/docker/docker/issues/6354
+https://github.com/cpuguy83/docker-volumes.git
+
+* Bulk remove container & images:
+
+http://mikehadlow.blogspot.fr/2014/04/docker-bulk-remove-images-and-containers.html
+
+* Overriding
+
+https://docs.docker.com/reference/run/#overriding-dockerfile-image-defaults
+
+## Bugs à suivre
+
+https://github.com/docker/docker/pull/3256 => kernel >= 3.15 && docker 1.4.1
+
+https://github.com/docker/docker/issues/8798
+https://github.com/docker/docker/issues/2637
+
+# Remarques
+
+Peu flexible (les compositions d'images sont quasi impossibles) !
