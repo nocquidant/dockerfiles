@@ -1,5 +1,7 @@
-# docker build -t nocquidant/adoc .
-# docker run -it -v <your directory>:/documents/ nocquidant/adoc
+# Build:
+#   docker build -t nocquidant/adoc .
+# Run: 
+#   docker run -it -v <your directory>:/documents/ nocquidant/adoc
 #
 FROM fedora
 MAINTAINER Nicolas Ocquidant <nocquidant@gmail.com>
