@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM fedora
 MAINTAINER Nicolas Ocquidant <nocquidant@gmail.com>
 
 ENV http_proxy http://proxy-nantes.groupesigma.fr:8080 
