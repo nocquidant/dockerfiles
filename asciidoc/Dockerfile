@@ -1,6 +1,10 @@
 FROM ubuntu
 MAINTAINER Nicolas Ocquidant <nocquidant@gmail.com>
 
+ENV http_proxy http://proxy-nantes.groupesigma.fr:8080 
+ENV https_proxy http://proxy-nantes.groupesigma.fr:8080 
+ENV no_proxy 127.0.0.1,localhost,.groupesigma.fr
+
 RUN yum install -y tar make gcc ruby ruby-devel rubygems graphviz rubygem-nokogiri asciidoctor
 RUN (curl -s -k -L -C - -b "oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u20-b26/jdk-8u20-linux-x64.tar.gz | tar xfz -)
 RUN mkdir /fopub && curl -L https://api.github.com/repos/asciidoctor/asciidoctor-fopub/tarball | tar xzf - -C /fopub/ --strip-components=1
