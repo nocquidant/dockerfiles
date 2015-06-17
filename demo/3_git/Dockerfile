@@ -6,7 +6,7 @@
 #   docker run --rm -v `pwd`:/src nocquidant/git clone https://github.com/nocquidant/my-spring-boot-sample.git
 #   alias dgit='docker run --rm -v `pwd`:/src nocquidant/git'
 
-FROM ubuntu:14.10
+FROM ubuntu:latest
 MAINTAINER Nicolas Ocquidant <nocquidant@gmail.com>
 
 ENV http_proxy http://proxy-nantes.groupesigma.fr:8080 
