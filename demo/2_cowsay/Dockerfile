@@ -4,7 +4,7 @@
 # Run:
 #   docker run --rm  nocquidant/cowsay
 
-FROM ubuntu:14.10
+FROM ubuntu:latest
 MAINTAINER Nicolas Ocquidant <nocquidant@gmail.com>
 
 ENV http_proxy http://proxy-nantes.groupesigma.fr:8080 
