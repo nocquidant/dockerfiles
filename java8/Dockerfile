@@ -1,7 +1,7 @@
 # Build:
 #   docker build -t nocquidant/java8 .
 
-FROM ubuntu:14.10
+FROM ubuntu:latest
 
 ENV http_proxy http://proxy-nantes.groupesigma.fr:8080 
 ENV https_proxy http://proxy-nantes.groupesigma.fr:8080 
