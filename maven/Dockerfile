@@ -3,6 +3,12 @@
 
 FROM nocquidant/java8
 
+ARG --description="Java http.proxyHost" proxy_host
+ARG --description="Java http.proxyPort" proxy_port
+ARG --description="Java http.proxyUser" proxy_user
+ARG --description="Java http.proxyPassword" proxy_password
+ARG --description="Java http.nonProxyHosts" non_proxy_hosts
+
 #
 # Install curl
 #
@@ -27,11 +33,13 @@ RUN \
 # Maven config
 #
 
-ENV MAVEN_OPTS \
-  -Dhttp.proxyHost=proxy-nantes.groupesigma.fr -Dhttp.proxyPort=8080 \
-  -Dhttp.nonProxyHosts=127.0.0.1|localhost|*.groupesigma.fr|*.devsopra.com \
-  -Dhttps.proxyHost=proxy-nantes.groupesigma.fr -Dhttps.proxyPort=8080 \
-  -Dhttps.nonProxyHosts=127.0.0.1|localhost|*.groupesigma.fr|*.devsopra.com
+ENV MAVEN_OPTS "\
+  -Dhttp.proxyHost=$proxy_host -Dhttp.proxyPort=$proxy_port \
+  -Dhttp.proxyUser=$proxy_user -Dhttp.proxyPassword=$proxy_password \
+  -Dhttp.nonProxyHosts=$non_proxy_hosts \
+  -Dhttps.proxyHost=$proxy_host -Dhttps.proxyPort=$proxy_port \
+  -Dhttps.proxyUser=$proxy_user -Dhttps.proxyPassword=$proxy_password \
+  -Dhttps.nonProxyHosts=$non_proxy_hosts"
 
 #
 # Set env variable

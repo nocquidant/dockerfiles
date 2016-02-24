@@ -3,10 +3,6 @@
 
 FROM ubuntu:latest
 
-ENV http_proxy http://proxy-nantes.groupesigma.fr:8080 
-ENV https_proxy http://proxy-nantes.groupesigma.fr:8080 
-ENV no_proxy 127.0.0.1,localhost,.groupesigma.fr
-
 #
 # Install wget
 #
@@ -17,7 +13,7 @@ RUN \
   rm -rf /var/lib/apt/lists/*
 
 #
-# Install Java 8u31
+# Install Java 8u74
 #
 
 RUN mkdir -p /opt/jdk
@@ -25,16 +21,16 @@ RUN mkdir -p /opt/jdk
 WORKDIR /opt/jdk
 
 RUN \
-  wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u31-b13/jdk-8u31-linux-x64.tar.gz \
-  && tar -zxf jdk-8u31-linux-x64.tar.gz \
-  && rm -f jdk-8u31-linux-x64.tar.gz
+  wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u74-b02/jdk-8u74-linux-x64.tar.gz \
+  && tar -zxf jdk-8u74-linux-x64.tar.gz \
+  && rm -f jdk-8u74-linux-x64.tar.gz
  
 RUN \
-  update-alternatives --install /usr/bin/java java /opt/jdk/jdk1.8.0_31/bin/java 100 \
-  && update-alternatives --install /usr/bin/javac javac /opt/jdk/jdk1.8.0_31/bin/javac 100
+  update-alternatives --install /usr/bin/java java /opt/jdk/jdk1.8.0_74/bin/java 100 \
+  && update-alternatives --install /usr/bin/javac javac /opt/jdk/jdk1.8.0_74/bin/javac 100
 
 #
 # Set env variable
 #  
 
-ENV JAVA_HOME /opt/jdk/jdk1.8.0_31
+ENV JAVA_HOME /opt/jdk/jdk1.8.0_74
