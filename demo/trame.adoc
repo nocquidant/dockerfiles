@@ -19,11 +19,11 @@
 === Hello world
 
 . hello world ?
-.. `sudo docker run --rm ubuntu echo "Hello world!"`
+.. `docker run --rm ubuntu echo "Hello world!"`
 
 . comment on construit des images docker ? -> via un Dockerfile (autres possibilités)
 .. hello world dans mon image à moi, via un docker file ? cf dossier hello
-.. on construit l'image avec `sudo docker build -t nocquidant/hello .`
+.. on construit l'image avec `docker build -t nocquidant/hello .`
 .. a noter l'utilisation d'un cache (on en reparlera plus loin)
 .. on lance l'image avec `drr nocquidant/hello`
 
